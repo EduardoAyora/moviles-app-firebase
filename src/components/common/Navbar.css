@@ -1,0 +1,30 @@
+.navbar-container {
+  background-color: #121728;
+  height: 100%;
+}
+
+.navbar {
+  padding: 0;
+  margin: 0;
+}
+
+.navbar li {
+  background-color: #1D2233;
+  border-radius: 5px;
+}
+
+.navbar a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #ACB0B7;
+  font-weight: 600;
+  border-radius: 5px;
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+}
+
+.navbar a:hover {
+  background-color: #384151;
+  color: white;
+}
