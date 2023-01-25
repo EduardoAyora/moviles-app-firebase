@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonCol, IonInput, IonItem, IonLabel, IonRow, useIonToast, IonicSafeString, IonIcon } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton, IonCol, IonInput, IonItem, IonLabel, IonRow, useIonToast, IonicSafeString, IonIcon, IonSelect, IonSelectOption } from '@ionic/react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -64,7 +64,8 @@ const Home: React.FC = () => {
 
             await setDoc(doc(db, "medicos", user.uid), {
               nombre: data.name,
-              imagen: urlImagen
+              imagen: urlImagen,
+              especialidades: data.especialidades
             });
             setIsLoading(false)
             presentToast(`Usuario ${user.email} creado con éxito`, true)
@@ -89,6 +90,23 @@ const Home: React.FC = () => {
           <IonItem lines="full">
             <IonLabel position="floating">Confirmar contraseña</IonLabel>
             <IonInput {...register('confirmPassword')} type="password" required></IonInput>
+          </IonItem>
+          <IonItem lines="full">
+            <IonLabel position="floating">Especialidades</IonLabel>
+            <IonSelect multiple={true} {...register('especialidades')} placeholder="Especialidades">
+              <IonSelectOption>Anestesiología</IonSelectOption>
+              <IonSelectOption>Cardiología</IonSelectOption>
+              <IonSelectOption>Endocrinología</IonSelectOption>
+              <IonSelectOption>Geriatría</IonSelectOption>
+              <IonSelectOption>Hematología</IonSelectOption>
+              <IonSelectOption>Medicina interna</IonSelectOption>
+              <IonSelectOption>Medicina preventiva</IonSelectOption>
+              <IonSelectOption>Neumología</IonSelectOption>
+              <IonSelectOption>Pediatría</IonSelectOption>
+              <IonSelectOption>Neurología</IonSelectOption>
+              <IonSelectOption>Psiquiatría</IonSelectOption>
+              <IonSelectOption>Reumatología</IonSelectOption>
+            </IonSelect>
           </IonItem>
           <IonItem lines="full">
             <IonLabel position="stacked">Foto</IonLabel>

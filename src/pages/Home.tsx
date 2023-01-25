@@ -6,6 +6,7 @@ import { doc, getDoc, } from 'firebase/firestore';
 import { useState } from 'react';
 import { IonIcon } from '@ionic/react';
 import { reload } from 'ionicons/icons';
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 export default function Home() {
   const [user, setUser] = useState<Medico>();
@@ -39,6 +40,9 @@ export default function Home() {
             Bienvenido {user.nombre}!
           </p>
         </div>
+        <>
+
+        </>
       </>}
     </body>
   )
