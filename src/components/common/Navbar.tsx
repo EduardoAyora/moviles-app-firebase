@@ -22,7 +22,7 @@ export default function Navbar({ children }: { children: any }) {
                   <Link onClick={() => menuRef.current?.close()} to='/home'>Home</Link>
                 </li>
                 <li style={{ listStyleType: 'none' }}>
-                  <Link onClick={() => menuRef.current?.close()} to='/agendar-cita'>Clientes</Link>
+                  <Link onClick={() => menuRef.current?.close()} to='/citas'>Citas</Link>
                 </li>
                 <li style={{ listStyleType: 'none' }}>
                   <Link onClick={() => menuRef.current?.close()} to='/'>Logout</Link>

@@ -25,7 +25,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import './App.css';
 import Navbar from './components/common/Navbar';
-import AgendarCita from './pages/AgendarCita';
+import AgendarCita from './pages/Citas';
 
 setupIonicReact();
 
@@ -43,7 +43,7 @@ const App: React.FC = () => (
           <Route exact path="/home">
             <Home />
           </Route>
-          <Route exact path="/agendar-cita">
+          <Route exact path="/citas">
             <AgendarCita />
           </Route>
           <Route exact path="/">
