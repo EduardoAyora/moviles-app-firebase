@@ -1,12 +1,11 @@
 import { IonButton, IonCol, IonIcon, IonicSafeString, IonRow, IonSpinner, useIonToast } from "@ionic/react";
 import { useEffect, useState } from "react"
 import { createOutline, trashOutline } from 'ionicons/icons';
-import RegistrarServicio from "./RegistrarServicio";
 
 export default function Servicios() {
   const [present] = useIonToast();
-  const [services, setServices] = useState<Servicio[]>()
-  const [serviceEdited, setServiceEdited] = useState<Servicio>()
+  const [services, setServices] = useState<Medico[]>()
+  const [serviceEdited, setServiceEdited] = useState<Medico>()
   const [isCreatingService, setIsCreatingService] = useState<boolean>(false)
 
   const presentToast = (
@@ -21,14 +20,14 @@ export default function Servicios() {
     });
   };
 
-  const deleteClient = async (serviceId: number) => {
+  const deleteClient = async (serviceId: string) => {
     const responseData = await fetch(`${process.env.REACT_APP_API_URL}/servicio/delete/${serviceId}`)
     if (!responseData.ok) {
       const response = await responseData.text();
       return presentToast(response, false)
     }
     presentToast('Servicio eliminado con éxito.', true)
-    setServices(prev => prev?.filter((service) => service.id !== serviceId))
+    setServices(prev => prev?.filter((service) => service.imagen !== serviceId))
   }
 
   const fetchData = async () => {
@@ -37,15 +36,15 @@ export default function Servicios() {
       const response = await responseData.text();
       return presentToast(response, false)
     }
-    const response = await responseData.json() as Servicio[];
+    const response = await responseData.json() as Medico[];
     setServices(response)
   }
 
-  const editService = (index: number) => {
-    return (editedClient?: Servicio) => {
+  const editService = (index: string) => {
+    return (editedClient?: Medico) => {
       setServiceEdited(undefined)
       if (!editedClient) return
-      setServices(prev => prev?.map(client => client.id === index ? editedClient : client))
+      setServices(prev => prev?.map(client => client.imagen === index ? editedClient : client))
     }
   }
 
@@ -61,10 +60,10 @@ export default function Servicios() {
         </IonCol>
       </IonRow>
       {
-        isCreatingService ? <RegistrarServicio postSubmitAction={() => setIsCreatingService(false)} /> :
+        isCreatingService ? <div>registrar servicio</div> :
           services == null ? <IonSpinner></IonSpinner>
             :
-            serviceEdited ? <RegistrarServicio service={serviceEdited} postSubmitAction={editService(serviceEdited.id)} /> :
+            serviceEdited ? <div>registrar servicio</div> :
               <div>
                 {services.map((service, index) =>
                   <div key={index} style={{
@@ -81,17 +80,17 @@ export default function Servicios() {
                   }}>
                     <div style={{ maxWidth: '60%' }}>
                       <p>
-                        Servicio: {service.id}
+                        Servicio: {service.imagen}
                       </p>
                       <p>
-                        Descripción: {service.descripcion}
+                        Descripción: {service.imagen}
                       </p>
                     </div>
                     <div>
                       <IonButton onClick={() => setServiceEdited(service)} color='primary'>
                         <IonIcon icon={createOutline}></IonIcon>
                       </IonButton>
-                      <IonButton onClick={() => deleteClient(service.id)} color='danger'>
+                      <IonButton onClick={() => deleteClient(service.imagen)} color='danger'>
                         <IonIcon icon={trashOutline}></IonIcon>
                       </IonButton>
                     </div>

@@ -52,7 +52,7 @@ const AgendarCita: React.FC = () => {
             const response = await usuarioResponse.text();
             return presentToast(response, false)
           }
-          const usuario = await usuarioResponse.json() as Usuario;
+          const usuario = await usuarioResponse.json();
           presentToast(`Usuario ${usuario.username} creado con éxito`, true)
           return history.push("/login")
         })}>

@@ -83,16 +83,16 @@ const Home: React.FC = () => {
             <IonInput {...register('name')} type="text" required></IonInput>
           </IonItem>
           <IonItem lines="full">
-            <IonItem lines="full">
-              <IonLabel position="floating">Foto</IonLabel>
-              <input {...register('file')} type='file' />
-            </IonItem>
             <IonLabel position="floating">Contraseña</IonLabel>
             <IonInput {...register('password')} type="password" required></IonInput>
           </IonItem>
           <IonItem lines="full">
             <IonLabel position="floating">Confirmar contraseña</IonLabel>
             <IonInput {...register('confirmPassword')} type="password" required></IonInput>
+          </IonItem>
+          <IonItem lines="full">
+            <IonLabel position="stacked">Foto</IonLabel>
+            <input {...register('file')} type='file' />
           </IonItem>
           <IonRow>
             <IonCol>
