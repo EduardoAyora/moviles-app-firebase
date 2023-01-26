@@ -33,7 +33,7 @@ export default function Home() {
         <IonIcon class="rotating" icon={reload} size='large' />
       </div> : <>
         <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '2rem' }}>
-          <img style={{ border: '2px solid black', borderRadius: '1rem' }} alt="foto de médico" src={user.imagen} />
+          <img height={200} style={{ border: '2px solid black', borderRadius: '1rem' }} alt="foto de médico" src={user.imagen} />
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', textAlign: 'center' }} className="fixed-action-btn">
           <p

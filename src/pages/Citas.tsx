@@ -74,6 +74,7 @@ export default function Citas() {
           </IonSelect>
         </IonItem>
       </IonList>
+      <div style={{height: '20px'}}></div>
       {
         loading ? <IonSpinner></IonSpinner>
           :
