@@ -65,6 +65,7 @@ const Home: React.FC = () => {
             await setDoc(doc(db, "medicos", user.uid), {
               nombre: data.name,
               imagen: urlImagen,
+              direccion: data.direccion,
               especialidades: data.especialidades
             });
             setIsLoading(false)
@@ -82,6 +83,10 @@ const Home: React.FC = () => {
           <IonItem lines="full">
             <IonLabel position="floating">Nombre</IonLabel>
             <IonInput {...register('name')} type="text" required></IonInput>
+          </IonItem>
+          <IonItem lines="full">
+            <IonLabel position="floating">Dirección</IonLabel>
+            <IonInput {...register('direccion')} type="text" required></IonInput>
           </IonItem>
           <IonItem lines="full">
             <IonLabel position="floating">Contraseña</IonLabel>

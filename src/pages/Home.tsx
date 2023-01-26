@@ -6,7 +6,7 @@ import { doc, getDoc, } from 'firebase/firestore';
 import { useState } from 'react';
 import { IonIcon } from '@ionic/react';
 import { reload } from 'ionicons/icons';
-import { collection, query, where, getDocs } from "firebase/firestore";
+import userState from '../lib/user';
 
 export default function Home() {
   const [user, setUser] = useState<Medico>();
@@ -15,6 +15,7 @@ export default function Home() {
   useEffect(() => {
     auth.onIdTokenChanged(async () => {
       if (!auth.currentUser) return
+      userState.uid = auth.currentUser.uid
       const docRef = doc(db, "medicos", auth.currentUser.uid);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {

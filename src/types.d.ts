@@ -8,8 +8,13 @@ interface Paciente {
 }
 
 interface Cita {
-  fecha: string;
+  id: string;
+  fecha: any;
   estado: boolean;
   paciente: Paciente;
   medico: Medico;
+  idPaciente: string;
+  nombrePaciente: string;
+  atendida: boolean;
+  cancelado: boolean;
 }
