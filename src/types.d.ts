@@ -1,6 +1,9 @@
 interface Medico {
   nombre: string;
   imagen: string;
+  email: string;
+  direccion: string;
+  especialidades: string;
 }
 
 interface Paciente {
