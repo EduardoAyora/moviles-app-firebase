@@ -86,8 +86,6 @@ export default function Citas() {
               let horasFormateadas = fecha.getHours() + ':' + fecha.getMinutes()
               if (fecha.getMinutes().toString.length === 1) horasFormateadas += '0'
               return <div key={index} style={{
-                display: 'flex',
-                justifyContent: 'space-between',
                 alignItems: 'center',
                 backgroundColor: '#f7f7f7',
                 color: 'black',
@@ -95,14 +93,18 @@ export default function Citas() {
                 border: '1px solid',
                 borderRadius: '5px',
                 padding: '0 1rem',
-                marginBottom: '1rem'
+                marginBottom: '1rem',
+                paddingBottom: '1rem',
+                textAlign: 'center',
+                fontSize: '1.2rem'
               }}>
-                <div style={{ maxWidth: '60%' }}>
+                <div>
                   <p>
-                    Paciente: {cita.nombrePaciente}
+                    <b>Cita con el paciente:</b> {cita.nombrePaciente}
                   </p>
+                  <img src={cita.fotoPaciente} alt="foto paciente" style={{borderRadius: '10px'}} />
                   <p>
-                    Fecha: {fechaFormateada} a las {horasFormateadas}
+                    <b>Fecha:</b> {fechaFormateada} a las {horasFormateadas}
                   </p>
                 </div>
                 <div>
@@ -129,9 +131,7 @@ export default function Citas() {
                 </div>
               </div>
             }
-
             )
-
             }
           </div>
       }

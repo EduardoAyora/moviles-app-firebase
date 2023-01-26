@@ -17,4 +17,5 @@ interface Cita {
   nombrePaciente: string;
   atendida: boolean;
   cancelado: boolean;
+  fotoPaciente: string;
 }
